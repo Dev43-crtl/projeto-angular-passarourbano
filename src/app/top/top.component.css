@@ -1,0 +1,16 @@
+.carrinho{
+    margin-left: 10px;
+}
+
+.carrinho button:hover{
+    color: #0d6efd;
+}
+
+@media screen and (max-width:991px){
+    .carrinho{
+        margin-top: 30px;
+        margin-left: 0;
+    }
+
+}
+

@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="sessao">
+        <h3 class="text-center">Destaques do dia</h3>
+        <h4 class="text-center">Aproveite as super ofertas que separamos para voce !</h4>
+    </div>
+
+    <div class="ofertas">
+        <div class="row">
+            <div class="col-sm-4 mb-3" *ngFor = "let oferta of ofertas">
+                <div class="card">
+                    <img [src]="oferta.imagens[0].url" class="card-img-top">
+                    <div class="card-block p-3">
+                        <h4 class="card-title ">{{oferta.titulo}}</h4>
+                        <p class="card-text">{{oferta.descricao_oferta}}</p>
+                        <p class="preco">{{oferta.valor | currency: 'BRL': true}} </p>
+                        <a class="btn btn-outline-primary" routerLink="/oferta/{{oferta.id}}">Ver Oferta</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="sessao">
+        <h3 class="text-center">Cinema, viagens, diversão muito e mais!</h3>
+        <h5 class="text-center">Conheça as melhores ofertas para você se divertir quando quiser:</h5>
+    </div>
+
+    <div class="diversao" *ngFor = "let diversoes of diversao">
+        <div class="row">
+            <div class="col-md-4" >
+                <img [src]="diversoes.imagens[0].url" class="img-fluid">
+            </div>
+            <div class="col-md-8">
+                <div class="row">
+                    <h4>{{diversoes.titulo}}</h4>
+                </div>
+                <div class="row">
+                    <p>{{diversoes.descricao_oferta}}</p>
+                </div>
+                <div class="row">
+                        <p >{{diversoes.descricao_oferta}}</p>
+                </div>
+                <div class="row">
+                    <p class="preco">{{diversoes.valor | currency: 'BRL': true}}</p>
+                </div>
+                <div class="row">
+                    <button class="btn btn-outline-primary mx-auto col-md-4" routerLink="/oferta/{{diversoes.id}}">Ver Oferta</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

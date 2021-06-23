@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+      <img src="../assets/logo.png" routerLink= ''>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" routerLink="" routerLinkActive="">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/restaurantes" routerLinkActive="restaurantes">Restaurantes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"  routerLink="/diversao" routerLinkActive="diversao">Diversão</a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control" type="search" placeholder="Search" aria-label="Search" #termo (keyup)= "pesquisa(termo.value)">
+          <ul class="list-group" style="position: absolute; top:60px; z-index: 999;">
+            <li class="list-group-item" *ngFor = "let oferta of ofertas | async">
+              <a [routerLink]= "['/oferta', oferta.id]" style="text-decoration: none;" (click)="limpaPesquisa()">
+                {{oferta.titulo}}
+              </a>
+            </li>
+          </ul>
+          <button class="btn btn-primary">Pesquisar</button>
+        </form>
+        <form class="d-flex carrinho">
+          <button class="btn btn-outline-light" routerLink="/ordemcompra" type="submit">
+            <fa-icon [icon]="faShoppingCart"></fa-icon>
+              Carrinho
+              <span class="badge bg-light text-primary ms-1 rounded-pill">{{ carrinhoService.totalItens()}}</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </nav>
+  
